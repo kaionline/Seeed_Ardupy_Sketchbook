@@ -1,12 +1,14 @@
-Introduction
-============
+# Introduction
 
 Transmission of information via an infrared transmission and receiving device.
 But it's still not good enough, it can't verify whether the data is correct or not, 
 are you interested in trying this question?
 
-Notice
-======
+- [Grove - Infrared Emitter](https://www.seeedstudio.com/Grove-Infrared-Emitter.html)
+- [Grove - Infrared Receiver](https://www.seeedstudio.com/Grove-Infrared-Receiver.html)
+
+## Notice
+
 Keeping the infrared transmitter and receiver closer together, 
 shaking the sensor when the signal is sent can cause data errors, 
 restarting the program will resolve the issue
@@ -14,75 +16,73 @@ restarting the program will resolve the issue
 The light flashes when the infrared receiver receives data, 
 if it does not, the source may be too far away from the receiver or the signal is blocked
 
-Usage Example - FlameSensor
-===========================
+## Usage Example - FlameSensor
+
 
 We connect flame sensor to board A, and load this script in device.
 
-.. code-block:: python
+```
+from grove import grove_flame
+import board
+import time
 
-    from grove import grove_flame
-    import board
-    import time
+flame   = grove_flame(board.SCL)
+clock   = 0.1
+epsilon = clock / 3
+H       = 1
+L       = 0
 
-    flame   = grove_flame(board.SCL)
-    clock   = 0.1
-    epsilon = clock / 3
-    H       = 1
-    L       = 0
-
-    def get_value():
-        #because flame.value is L when detected a signal
-        #is negtive logical
-        if flame.value:
-            return L
-        return H
-        
-    def wait_for(level):
-        while True:
-            if get_value() == level:
-                break
-
-    def wait_start_token():
-        wait_for(H)
-        wait_for(L)
-        print ("start")
-
-    def wait_end_token():
-        wait_for(L)
+def get_value():
+    #because flame.value is L when detected a signal
+    #is negtive logical
+    if flame.value:
+        return L
+    return H
     
-    #We're using the Manchester encoding.
-    def get_bit():
-        temp = get_value()
-        time.sleep(clock + epsilon)
-        if temp == get_value():
-            wait_for(not temp)
-            return H
-        else:
-            wait_for(temp)
-            return L
-
-    def get_byte():
-        data = 0
-        for i in range(0, 8):
-            data = (data << 1) | get_bit()
-        return data
-
+def wait_for(level):
     while True:
-        wait_start_token()
-        while True:
-            value = get_byte()
-            if value == 0:
-                break
-            print (chr(value), end='')
-        wait_end_token()
-        
-Usage Example - InfraredEmitter
-===============================
+        if get_value() == level:
+            break
+
+def wait_start_token():
+    wait_for(H)
+    wait_for(L)
+    print ("start")
+
+def wait_end_token():
+    wait_for(L)
+
+#We're using the Manchester encoding.
+def get_bit():
+    temp = get_value()
+    time.sleep(clock + epsilon)
+    if temp == get_value():
+        wait_for(not temp)
+        return H
+    else:
+        wait_for(temp)
+        return L
+
+def get_byte():
+    data = 0
+    for i in range(0, 8):
+        data = (data << 1) | get_bit()
+    return data
+
+while True:
+    wait_start_token()
+    while True:
+        value = get_byte()
+        if value == 0:
+            break
+        print (chr(value), end='')
+    wait_end_token()
+```
+## Usage Example - InfraredEmitter
 
 Next step is connect infrared emitter to board B, and load this script in device.
 
-.. code-block:: python
+```
 
     from grove import grove_led
     import board
@@ -129,8 +129,6 @@ Next step is connect infrared emitter to board B, and load this script in device
         start_token()
         send_string('I Love Coding.')
         end_token()
-        
-Contributing
-============
-
+```
+## Contributing
 If you have any good suggestions or comments, you can send issues or PR us.
