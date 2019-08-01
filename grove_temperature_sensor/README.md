@@ -6,7 +6,7 @@ A simple analog temperature sensor.
 ## Usage Example
 You can easily got the current temperature by the temperature sensor.
 
-```
+```python
 from analogio import grove_temperature
 import board
 import time
