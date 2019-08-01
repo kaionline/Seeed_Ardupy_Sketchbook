@@ -16,7 +16,7 @@ Grove LED is one of the simplest digital output modules, We have many different 
 ## Usage Example
 This expample contains all the grove_led API. Each line of code is very simple, hope you like it
 
-```
+```python
 from grove import grove_led
 import board
 import time
