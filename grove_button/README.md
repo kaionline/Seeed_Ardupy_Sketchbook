@@ -14,7 +14,7 @@ The Button is probably the most used input device and can be seen in every corne
 
 The Led will light when keep the key pressed and will go out when the button is released.
 
-```
+```python
 from grove import grove_led
 from grove import grove_button
 import board
