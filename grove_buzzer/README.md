@@ -10,7 +10,7 @@ Buzzer can connect to digital output to generate alarm-like sound, it can also b
 - [Grove - Mech Keycap](https://www.seeedstudio.com/Grove-Mech-Keycap.html)
 
 ## Usage Example
-Do you want to experience the feeling of generating a telegram.
+Do you want to experience the feeling of generating a telegram?
 
 ```python
 from grove import grove_buzzer
