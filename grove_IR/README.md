@@ -21,7 +21,7 @@ if it does not, the source may be too far away from the receiver or the signal i
 
 We connect flame sensor to board A, and load this script in device.
 
-```
+```python
 from grove import grove_flame
 import board
 import time
@@ -82,53 +82,52 @@ while True:
 
 Next step is connect infrared emitter to board B, and load this script in device.
 
-```
+```python
+from grove import grove_led
+import board
+import time
 
-    from grove import grove_led
-    import board
-    import time
+led     = grove_led(board.SCL)
+clock   = 0.1
+H       = 1
+L       = 0
 
-    led     = grove_led(board.SCL)
-    clock   = 0.1
-    H       = 1
-    L       = 0
-
-    def set_bit(level):
-        if level == H:
-            time.sleep(clock * 2)
-        else:
-            time.sleep(clock)
-            led.value = not led.value
-            time.sleep(clock)
+def set_bit(level):
+    if level == H:
+        time.sleep(clock * 2)
+    else:
+        time.sleep(clock)
         led.value = not led.value
+        time.sleep(clock)
+    led.value = not led.value
 
-    def start_token():
-        time.sleep(clock)
-        led.value = H
-        time.sleep(clock)
+def start_token():
+    time.sleep(clock)
+    led.value = H
+    time.sleep(clock)
+    led.value = L
+
+def end_token():
+    time.sleep(clock)
+    if led.value:
         led.value = L
-
-    def end_token():
         time.sleep(clock)
-        if led.value:
-            led.value = L
-            time.sleep(clock)
 
-    def send_byte(value):
-        for i in range(0, 8):
-            bit = value & 0x80 != 0
-            set_bit(bit)
-            value = value << 1
+def send_byte(value):
+    for i in range(0, 8):
+        bit = value & 0x80 != 0
+        set_bit(bit)
+        value = value << 1
 
-    def send_string(value):
-        for char in value:
-            send_byte(ord(char))
-        send_byte(0x00) #end string
+def send_string(value):
+    for char in value:
+        send_byte(ord(char))
+    send_byte(0x00) #end string
 
-    while True:
-        start_token()
-        send_string('I Love Coding.')
-        end_token()
+while True:
+    start_token()
+    send_string('I Love Coding.')
+    end_token()
 ```
 ## Contributing
 If you have any good suggestions or comments, you can send issues or PR us.
