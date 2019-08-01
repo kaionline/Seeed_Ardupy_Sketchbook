@@ -1,13 +1,13 @@
 # Introduction
-LED Button integrates Led and Button together
+LED Button integrates Led and Button together.
 
 - [Grove - Red Led Button](https://www.seeedstudio.com/Grove-Red-LED-Button.html)
 - [Grove - Blue Led Button](https://www.seeedstudio.com/Grove-Blue-LED-Button.html)
 - [Grove - Yellow Led Button](https://www.seeedstudio.com/Grove-Yellow-LED-Button.html)
 
 ## Notice
-SIG1 and SIG2 are defined on the back of LED Button device. 
-SIG1 connect to LED signal line.
+SIG1 and SIG2 are defined on the back of LED Button device.  
+SIG1 connect to LED signal line.  
 SIG2 connect to button signal line.
 
 ## Usage Example
