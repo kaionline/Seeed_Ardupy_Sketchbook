@@ -4,8 +4,7 @@ The Hall sensor is based on Hall Effect, which is the production of a voltage di
 - [Grove - Holl Sensor](https://www.seeedstudio.com/Grove-Hall-Sensor-p-965.html)
 
 ## Usage Example
-You can try to get close to the sensor with a magnet, which only identifies the magnetundefineds south pole.  
-If you want to try to detect the north pole of the magnet, you can turn the back of the sensor against the magnet.
+You can try to get close to the sensor with a magnet.
 
 ```python
 from grove import grove_hall_sensor
