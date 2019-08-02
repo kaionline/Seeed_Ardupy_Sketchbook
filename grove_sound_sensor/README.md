@@ -1,7 +1,7 @@
 # Introduction
 Sound Sensor can detect the sound intensity of the environment.
 
-- [Grove - Sound Senser](https://www.seeedstudio.com/Grove-Sound-Sensor.html)
+- [Grove - Sound Sensor](https://www.seeedstudio.com/Grove-Sound-Sensor.html)
 
 ## Usage Example
 Please make a noise to view the change of the value.
