@@ -1,7 +1,7 @@
 # Introduction
 The Grove-Tilt Switch is the equivalent of a button, and is used as a digital input. Inside the tilt switch is a pair of balls that make contact with the pins when the case is upright. Tilt the case over and the balls don't touch, thus not making a connection. It is wired to the SIG line, NC is not used on this Grove.
 
-- [Grove - ](https://www.seeedstudio.com/.html)
+- [Grove - Tilt Switch](https://www.seeedstudio.com/Grove-Tilt-Switch-p-771.html)
 
 ## Usage Example
 
