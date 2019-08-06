@@ -3,7 +3,7 @@ from grove import grove_button
 import board
 import time
 
-btn = grove_button(board.SCL)
+btn = grove_button(board.D0)
 led = grove_led(board.D2)
 
 while True:

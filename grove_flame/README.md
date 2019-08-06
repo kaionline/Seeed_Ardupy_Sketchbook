@@ -26,7 +26,7 @@ from grove import grove_flame
 import board
 import time
 
-flame   = grove_flame(board.SCL)
+flame   = grove_flame(board.D0)
 clock   = 0.1
 epsilon = clock / 3
 H       = 1
@@ -87,7 +87,7 @@ from grove import grove_led
 import board
 import time
 
-led     = grove_led(board.SCL)
+led     = grove_led(board.D0)
 clock   = 0.1
 H       = 1
 L       = 0

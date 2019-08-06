@@ -2,7 +2,7 @@ from grove import grove_led
 import board
 import time
 
-led = grove_led(board.SCL)
+led = grove_led(board.D0)
 led.value = 0
 
 while True:
