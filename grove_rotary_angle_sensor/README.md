@@ -6,14 +6,17 @@ The rotary angle sensor produces analog output between 0 and Vcc (5V DC with See
 ## Usage Example
 
 ```python
-from grove import grove_rotary_angle_sensor
+from grove import grove_loudness_sensor
 import board
 import time
 
-rotary_angle = rotary_angle_sensor(board.A0)
+rotary_angle = grove_loudness_sensor(board.A0)
+
+def get_angle():
+    return rotary_angle.value * 360 / 1023
 
 while True:
-    print (rotary_angle.value)
+    print ("Current rotary angle is", get_angle())
     time.sleep(1)
 ```
 ## Contributing
