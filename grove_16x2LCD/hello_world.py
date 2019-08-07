@@ -3,7 +3,7 @@ import time
 
 lcd = grove_16x2_lcd()
 lcd.print("Hello world.")
-lcd.is_show_cursor = True
+lcd.is_blink_cursor = True
 i = 0
 
 while True:
