@@ -10,8 +10,7 @@ from grove import grove_ultra_ranger
 import board
 import time
 
-count_of_led = 10
-ur = grove_ultra_ranger(board.SCL)
+ur = grove_ultra_ranger(board.D0)
 
 while True:
     #error:
