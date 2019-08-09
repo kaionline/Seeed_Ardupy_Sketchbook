@@ -12,19 +12,19 @@ import time
 rgb_led = grove_chainable_led(board.D0, board.D1, 1) #clock, data, led_numbers
 
 while True:
-    rgb_led.set_rgb(0, 255, 0, 0)
+    rgb_led.set_rgb(1, 255, 0, 0) #NO, red, green, blue
     time.sleep(2)
-    rgb_led.set_rgb(0, 0, 255, 0)
+    rgb_led.set_rgb(1, 0, 255, 0)
     time.sleep(2)
-    rgb_led.set_rgb(0, 0, 0, 255)
+    rgb_led.set_rgb(1, 0, 0, 255)
     time.sleep(2)
-    rgb_led.set_rgb(0, 0, 255, 255)
+    rgb_led.set_rgb(1, 0, 255, 255)
     time.sleep(2)
-    rgb_led.set_rgb(0, 255, 0, 255)
+    rgb_led.set_rgb(1, 255, 0, 255)
     time.sleep(2)
-    rgb_led.set_rgb(0, 255, 255, 0)
+    rgb_led.set_rgb(1, 255, 255, 0)
     time.sleep(2)
-    rgb_led.set_rgb(0, 255, 255, 255)
+    rgb_led.set_rgb(1, 255, 255, 255)
     time.sleep(2)
 ```
 ## Contributing
