@@ -17,7 +17,7 @@ lcd.is_blink_cursor = True
 i = 0
 
 while True:
-    lcd.set_cursor(0, 1) #column 0, row 1
+    lcd.set_cursor(1, 2) #column 1, row 2
     lcd.print(i)
     time.sleep(0.5)
     i = i + 1
